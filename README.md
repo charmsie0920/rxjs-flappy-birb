@@ -1,77 +1,29 @@
-# Assignment 1
+# RxJS Flappy Birb
 
-## Usage
+A declarative, purely functional implementation of the classic Flappy Bird game built using **Functional Reactive Programming (FRP)** principles. [cite_start]This project explores the power of **RxJS Observable streams** to manage complex game states, user interactions, and physics without the use of imperative loops or mutable global variables [cite: 503-505].
 
-Setup (requires node.js):
+## Core Technical Concepts
 
+* [cite_start]**Functional Reactive Programming (FRP)**: Handles animation and user interaction entirely through asynchronous data streams [cite: 503-504].
+* [cite_start]**State Management**: Utilizes the `scan` and `merge` operators to process game state transitions in a purely functional manner, inspired by the Redux pattern.
+* [cite_start]**Collision Physics**: Implements high-stakes collision logic where the bird interacts with a dynamic environment, including "bounce" mechanics with randomized velocities [cite: 553-556].
+* [cite_start]**Session Replay (Ghost Bird)**: Features a non-interactive "ghost" bird that replays the exact path of previous runs in real-time by leveraging stream history[cite: 566, 569].
+* [cite_start]**Stream-Based Obstacles**: Dynamically generates and manages obstacles (pipes) based on external CSV data, synchronized with the game's timeline[cite: 558, 603].
+
+## Tech Stack
+
+* [cite_start]**Language**: TypeScript (Strict Mode) 
+* [cite_start]**Reactive Library**: RxJS 
+* [cite_start]**Rendering**: SVG Canvas [cite: 531]
+* [cite_start]**Testing**: Vitest for comprehensive unit testing of pure functions [cite: 680-681]
+* **Build Tool**: Vite
+
+## Getting Started
+
+### Prerequisites
+* [Node.js](https://nodejs.org/) (v16+)
+
+### Installation
 ```bash
-> npm install
-```
-
-Start tests:
-
-```bash
-> npm test
-```
-
-Serve up the App (and ctrl-click the URL that appears in the console)
-
-```bash
-> npm run dev
-```
-
-To generate a map:
-
-```bash
-npm run generate-pipes
-```
-
-To format your code, for the assignment specifications:
-
-```bash
-npx prettier . --write
-```
-
-The configuration for this is set in `.prettierrc.json`. Feel free to change this to your heart's desire, but try to ensure it still fits the assignment guidelines.
-
-If you are using VS Code, you can also install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). This skeleton code is set up to automatically format your code on save. You can disable this in `.vscode/settings.json` by changing `"editor.formatOnSave": true` to `"editor.formatOnSave": false`.
-
-## Implementing features
-
-There are a few files you may wish to modify. The rest should **not** be modified as they are used for configuring the build.
-
-`src/main.ts`
-
-- Code file used as the entry point
-- Most of your game logic should go here
-- Contains main function that is called on page load
-
-`src/style.css`
-
-- Stylesheet
-- You may edit this if you wish
-
-`index.html`
-
-- Main html file
-- Contains scaffold of game window and some sample shapes
-- Feel free to add to this, but avoid changing the existing code, especially the `id` fields
-
-`test/*.test.ts`
-
-- If you want to add tests, these go here
-- Uses [`vitest`](https://vitest.dev/api/)
-
-We expect the core logic of your game to be in `src/main.ts`, however, you may elect to spread your code over multiple files. In this case, please use ![TS Modules](https://www.typescriptlang.org/docs/handbook/modules.html).
-
-Avoid separating code into too many files as it makes it hard to mark. The maximum recommended code file structure would be something like
-
-```
-src/
-  main.ts        -- main code logic inc. core game loop
-  types.ts       -- common types and type aliases
-  util.ts        -- util functions
-  state.ts       -- state processing and transformation
-  view.ts        -- rendering
-  observable.ts  -- functions to create Observable streams
-```
+# Install dependencies
+npm install
